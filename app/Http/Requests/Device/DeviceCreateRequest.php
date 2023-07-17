@@ -28,10 +28,12 @@ class DeviceCreateRequest extends FormRequest
 
     public function failedValidation(Validator $validator)
     {
+        $allErrors = $validator->errors();
+        $firstError = reset($allErrors);
         throw new HttpResponseException(response()->json([
-            'success'   => false,
-            'message'   => 'Validation errors',
-            'data'      => $validator->errors()
+            'message'   => reset($firstError)[0],
+            'isSuccess'   => false,
+            'statusCode'   => 403,
         ]));
     }
 

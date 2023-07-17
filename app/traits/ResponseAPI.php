@@ -11,15 +11,15 @@ trait ResponseAPI
         if($isSuccess) {
             return response()->json([
                 'message' => $message,
-                'error' => false,
-                'code' => $statusCode,
-                'results' => $data
+                'isSuccess' => false,
+                'statusCode' => $statusCode,
+                'data' => $data
             ], $statusCode);
         } else {
             return response()->json([
                 'message' => $message,
-                'error' => true,
-                'code' => $statusCode,
+                'isSuccess' => true,
+                'statusCode' => $statusCode,
             ], $statusCode);
         }
     }

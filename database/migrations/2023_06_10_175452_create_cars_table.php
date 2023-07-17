@@ -14,15 +14,14 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id('car_id');
             $table->string('car_topic');
-            $table->string('car_sim');
-            $table->string('car_image');
-            $table->string('car_brand');
-            $table->string('car_brand_image');
-            $table->string('car_model');
+            $table->string('car_sim')->nullable();
+            $table->string('car_image')->nullable();
             $table->string('car_year');
             $table->string('car_color');
+            $table->unsignedBigInteger('model_id');
+            $table->foreign('model_id')->references('model_id')->on('models')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('device_id');
-            $table->foreign('device_id')->references('device_id')->on('devices')->onDelete('cascade');
+            $table->foreign('device_id')->references('device_id')->on('devices')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

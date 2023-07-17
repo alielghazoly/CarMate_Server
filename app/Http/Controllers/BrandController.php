@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Brand\BrandCreateRequest;
+use App\Http\Resources\BrandResource;
 use App\Models\Brand;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class BrandController extends Controller
     public function getAllBrands()
     {
         try {
-            $brands = Brand::all();
+            $brands = BrandResource::collection(Brand::all());
             return $this->success("Brands retrived successfully", $brands);
         } catch(\Exception $e) {
             return $this->error($e->getMessage(), $e->getCode());

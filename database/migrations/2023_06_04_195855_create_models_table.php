@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('model_id');
             $table->string('model_name');
             $table->unsignedBigInteger('brand_id');
-            $table->foreign('brand_id')->references('brand_id')->on('brands')->onDelete('cascade');
+            $table->foreign('brand_id')->references('brand_id')->on('brands')->onDelete('cascade')->onUpdate('cascade');;
             $table->timestamps();
         });
     }

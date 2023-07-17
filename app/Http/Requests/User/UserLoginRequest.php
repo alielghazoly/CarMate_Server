@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Brand;
+namespace App\Http\Requests\User;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class BrandCreateRequest extends FormRequest
+class UserLoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class BrandCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:brands,brand_name',
-            'image' => 'required||mimes:png,jpg'
+            'user_name' => 'required',
+            'user_phone' => 'required',
+            'user_fcm_token' => 'required'
         ];
     }
 
@@ -43,10 +44,14 @@ class BrandCreateRequest extends FormRequest
     public function messages()
     {
         return [ 
-            'name.required' => 'name is required',
-            'image.required' => 'image is required',
-            'image.mimes' => 'image must be of type jpg or png'
+            'user_name.required' => 'user_name is required',
+            'user_phone.required' => 'user_phone is required',
+            'user_name.unique' => 'user_name already taken',
+            'user_phone.unique' => 'user_phone already taken',
+            'user_phone.numeric' => 'user_phone must be a number',
+            'user_fcm_token.required' => 'user_fcm_token is required',
         ];
 
     }
+
 }

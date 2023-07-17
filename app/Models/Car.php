@@ -16,4 +16,14 @@ class Car extends Model
         $statement = DB::select("show table status like 'cars'");
         return $statement[0]->Auto_increment;
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'car_user','car_id','user_id');
+    }
+
+    public function model()
+    {
+        return $this->belongsTo(CarModel::class,'model_id');
+    }
 }

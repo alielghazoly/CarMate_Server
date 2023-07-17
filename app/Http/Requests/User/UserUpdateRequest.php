@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Account;
+namespace App\Http\Requests\User;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AccountUpdateRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,12 @@ class AccountUpdateRequest extends FormRequest
 
     public function failedValidation(Validator $validator)
     {
+        $allErrors = $validator->errors();
+        $firstError = reset($allErrors);
         throw new HttpResponseException(response()->json([
-            'success'   => false,
-            'message'   => 'Validation errors',
-            'data'      => $validator->errors()
+            'message'   => reset($firstError)[0],
+            'isSuccess'   => false,
+            'statusCode'   => 403,
         ]));
     }
 

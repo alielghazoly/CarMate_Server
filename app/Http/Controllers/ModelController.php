@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Model;
+use App\Http\Resources\ModelResource;
+use App\Models\CarModel;
+use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 
 class ModelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function getCarBrandModels($brand_id)
+    
+    use ResponseAPI;
+
+    public function getCarBrandModels(Request $request)
     {
         try {
-            $models = Model::where('brand_id',$brand_id);
+            $models = [];
+            if (isset($request->brand_id)) {
+                $models = ModelResource::collection(CarModel::where('brand_id',$request->brand_id)->get());
+            }
+            if (count($models) == 0) {
+                return $this->success("There is no models for this brand id",[]);
+            }
             return $this->success("Models retrived successfully", $models);
         } catch(\Exception $e) {
             return $this->error($e->getMessage(), $e->getCode());

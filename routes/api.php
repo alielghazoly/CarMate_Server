@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\ModelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,17 +20,27 @@ use Illuminate\Support\Facades\Route;
 
 // ACCOUNT ROUTES
 
-Route::post('accounts/login', [AccountController::class, 'login']);
-Route::post('accounts/update/{account}', [AccountController::class, 'update']);
+Route::post('users/login', [AuthController::class, 'login']);
+Route::post('users/updateFcmToken', [AuthController::class, 'updateFcmToken'])->middleware('auth:api');
+Route::post('users/updateUserPhone', [AuthController::class, 'updateUserPhone'])->middleware('auth:api');
 
 // BRAND ROUTES
 
-Route::get('brands/getAllBrands', [BrandController::class, 'getAllBrands']);
+Route::get('brands/getAllBrands', [BrandController::class, 'getAllBrands'])->middleware('auth:api');
 Route::post('brands/create', [BrandController::class, 'store']);
 
 // MODEL ROUTES
 
-Route::get('brands/getCarBrandModels', [BrandController::class, 'getCarBrandModels']);
+Route::get('models/getCarBrandModels', [ModelController::class, 'getCarBrandModels'])->middleware('auth:api');
 
+// DEVICES ROUTES
 
-Route::post('devices/create', [DeviceController::class, 'store']);
+Route::post('devices/create', [DeviceController::class, 'store'])->middleware('auth:api');
+
+// CARS ROUTES
+
+Route::post('cars/create', [CarController::class, 'store'])->middleware('auth:api');
+Route::post('cars/get', [CarController::class, 'get'])->middleware('auth:api');
+Route::post('cars/updateCarSim', [CarController::class, 'updateCarSim'])->middleware('auth:api');
+Route::post('cars/sync', [CarController::class, 'sync'])->middleware('auth:api');
+
