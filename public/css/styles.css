@@ -1,0 +1,283 @@
+/* Google Font Import - Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+@import url("./navbar.css");
+@import url("./sidebar.css");
+@import url("./dashboard.css");
+@import url("./selling-points.css");
+@import url("./selling-points-navbar.css");
+@import url("./data-table.css");
+@import url("./setting.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+}
+a {
+  cursor: pointer;
+}
+@font-face {
+  font-family: "Montserrat-Arabic";
+  src: url("./assets/fonts/Montserrat-Arabic-Regular.woff");
+}
+
+@font-face {
+  font-family: "Montserrat-Arabic-light";
+  src: url("./assets/fonts/Montserrat-Arabic-Light.woff");
+}
+
+:root {
+  /* ===== Colors ===== */
+  --blue-color: #4c70f0;
+  --sidebar-color: #23283b;
+  --primary-color: #f1f1f8;
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #ddd;
+  --text-color: #ffff;
+
+  /* ====== Transition ====== */
+  --tran-03: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
+
+svg {
+  direction: ltr;
+}
+
+body {
+  min-height: 100vh;
+  transition: var(--tran-05);
+  font-family: "Montserrat-Arabic";
+  background-color: #e0e2ef;
+}
+
+.main-section {
+  padding-top: 50px;
+  padding-inline: 10px;
+  direction: ltr;
+  background-color: #e0e2ef;
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+input,
+input::placeholder {
+  font-family: "Montserrat-Arabic";
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 20px;
+  margin-left: 40px;
+}
+
+.data img {
+  border-radius: 50%;
+}
+.data > div {
+  margin-block: 10px;
+}
+
+.data p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.data-inputs > div:nth-child(1) {
+  gap: 30px;
+  display: flex;
+}
+
+.data-inputs > div:nth-child(1) label {
+  display: block;
+}
+
+.data-inputs div input,
+.data-inputs select {
+  width: 100%;
+  padding-inline: 10px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #d2d2d2;
+  border: 1px solid rgba(0, 0, 0, 0.345);
+  position: relative;
+}
+
+.data-inputs textarea {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px 30px;
+  height: 100px;
+  font-size: 18px;
+  font-family: "Montserrat-Arabic";
+  border-radius: 5px;
+  background-color: #d2d2d2;
+  border: 1px solid rgba(0, 0, 0, 0.345);
+  position: relative;
+}
+
+.categories {
+  max-width: 500px;
+  flex: 1;
+  margin-left: 30px;
+}
+
+.categories > div:first-child {
+  display: flex;
+  gap: 20px;
+}
+.categories div:first-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  margin-bottom: 30px;
+}
+.categories input,
+.categories select {
+  padding-inline: 10px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.345);
+  position: relative;
+}
+
+.categories > div:nth-child(3) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: 80px;
+  gap: 10px;
+  width: 100%;
+  height: 350px;
+  padding-left: 20px;
+  overflow: auto;
+}
+.categories > div:nth-child(3) > div {
+  background-color: #2e5a81;
+  color: white;
+  padding: 20px 20px;
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.categories div:nth-child(3) > div p {
+  margin-top: 10px;
+}
+.categories > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: 150px;
+  gap: 10px;
+  width: 100%;
+  height: 650px;
+  padding-left: 20px;
+  overflow: auto;
+  margin-top: 60px;
+}
+
+.categories > div:last-child > div {
+  width: 100%;
+  height: 100%;
+}
+
+.categories > div:last-child > div > div {
+  margin-bottom: 0px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.sidebar-part-two {
+  margin-bottom: 30px;
+}
+
+/* search input in tables */
+
+.search-box {
+  font-size: 11px;
+  padding: 1px 19px;
+  border: 1px solid #c1c1c1;
+  background-color: white;
+  max-width: 250px;
+  display: flex;
+  gap: 10px;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.search-box:hover {
+  border-color: #aaaaaa;
+}
+
+.search-box:focus-within {
+  border-color: var(--sidebar-color);
+  box-shadow: var(--blue-color);
+}
+
+.search-box input {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  color: #323232;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.search-box input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.clear:not(:valid) ~ .search-clear {
+  display: none;
+}
+
+button {
+  font-family: "Montserrat-Arabic";
+}
+textarea {
+  padding: 15px 10px;
+}
+input {
+  padding: 10px;
+}

@@ -1,0 +1,242 @@
+.data-table-title-div {
+  background-color: #23283b;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: white;
+  padding: 25px 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.demo {
+  width: 100%;
+  direction: ltr;
+  /* padding-inline: 20px; */
+}
+
+.demo td,
+.demo th {
+  padding-block: 10px;
+  color: #23283b;
+  padding-inline: 10px;
+  min-width: 70px;
+  font-size: 4px;
+}
+
+.demo th {
+  font-size: 18px;
+}
+.demo td {
+  font-family: "Montserrat-Arabic-light";
+  font-weight: 200;
+  font-size: 15px;
+  color: #23283b;
+  max-width: 371px;
+}
+
+.data-table-status-completed,
+.data-table-status-partial,
+.data-table-status-uncompleted {
+  background-color: #38bb94;
+  border-radius: 7px;
+  color: white;
+  padding: 7px 11px;
+}
+
+.data-table-status-partial {
+  background-color: #ffa030;
+}
+
+.data-table-status-uncompleted {
+  background-color: #f13c47;
+}
+
+.check {
+  -webkit-appearance: none; /*hides the default checkbox*/
+  height: 20px;
+  width: 20px;
+  position: relative;
+  transition: 0.1s;
+  background-color: white;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.check:checked {
+  border: none;
+  background-color: #00ccf2;
+}
+
+.check:checked:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.674' height='8.495' viewBox='0 0 11.674 8.495'%3E%3Cpath id='Icon_feather-check' data-name='Icon feather-check' d='M14.845,9,8.764,15.081,6,12.317' transform='translate(-4.586 -7.586)' fill='none' stroke='%23f5fbff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E%0A");
+}
+
+.check:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.pagination {
+  margin-inline: auto;
+  width: fit-content;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  direction: ltr;
+}
+
+.pagination button {
+  transition: 0.3s all ease;
+  padding: 9px 15px;
+  position: relative;
+  background-color: #e0e2ef;
+  font-family: "Montserrat-Arabic";
+  border-radius: 8px;
+}
+
+.pagination button:hover:not(button:first-child, button:last-child) {
+  background-color: #23283b;
+  color: white;
+}
+.pagination button img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+}
+
+.table-options {
+  margin-block: 30px;
+}
+.table-options > div {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.table-options div input {
+  min-width: 200px;
+  padding-inline: 10px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.345);
+  position: relative;
+}
+
+.table-options div select {
+  min-width: 200px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.345);
+  height: 40px;
+}
+
+.table-options div select {
+  margin-top: 10px;
+}
+
+.demo input[type="checkbox"] {
+  min-width: 20px !important;
+}
+.table-div {
+  overflow: auto;
+}
+@media (max-width: 1300px) {
+  .table-div {
+    width: 1000px;
+    overflow: auto;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 1220px) {
+  .table-div {
+    overflow: auto;
+    width: 950px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 1110px) {
+  .table-div {
+    overflow: auto;
+    width: 800px;
+    margin-inline: auto;
+  }
+}
+@media print {
+  .table-options {
+    display: none;
+  }
+  .data-table > div:first-child {
+    display: none !important;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  .sidebar,
+  .sidebar-part-two {
+    display: none;
+  }
+  header {
+    display: none;
+  }
+  .data-table-title-div {
+    display: none;
+  }
+  thead tr th:first-child {
+    display: none;
+  }
+  .demo td:first-child {
+    display: none;
+  }
+  .data-table-status-completed,
+  .data-table-status-partial,
+  .data-table-status-uncompleted {
+    color: black;
+  }
+  .pagination {
+    display: none;
+  }
+  .table-div {
+    zoom: 75%;
+  }
+  .table-div {
+    position: absolute;
+    top: 180px;
+    width: 100%;
+  }
+  @page {
+    size: landscape;
+  }
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-block: 20px;
+}
+.options label {
+  align-items: flex-end;
+  display: flex;
+}
+.options input[type="checkbox"] {
+  margin-left: 7px;
+}
+.options-title {
+  font-size: 17px;
+}

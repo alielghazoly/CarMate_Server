@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('push-notification', [NotificationController::class, 'index']);
-Route::post('sendNotification', [NotificationController::class, 'sendNotification'])->name('send.notification');
+Route::get('users/login', [AuthController::class, 'view']);
+Route::get('devices/create', [DeviceController::class, 'createDevicesPage']);
+
 
 

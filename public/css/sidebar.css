@@ -1,0 +1,260 @@
+/* ===== Sidebar ===== */
+:root {
+  --beforeDisplay: block;
+}
+.sidebar,
+.sidebar-part-two {
+  height: fit-content;
+  overflow: hidden;
+  width: 250px;
+  direction: ltr;
+  margin-right: 30px;
+  padding: 10px 14px;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+  z-index: 10;
+  position: relative;
+  border-radius: 10px;
+}
+
+.sidebar-part-two {
+  margin-top: 40px;
+  border-radius: 10px;
+}
+.close {
+  width: 88px;
+}
+.close .stores-select {
+  display: none;
+}
+
+.stores-select {
+  display: flex;
+  gap: 10px;
+}
+.stores-select button {
+  padding: 10px 30px;
+  background-color: rgb(0, 105, 165);
+  color: white;
+}
+
+.stores-select select {
+  margin-left: auto;
+  width: 100%;
+  padding: 10px;
+  text-align: end;
+  background-color: white;
+  color: var();
+}
+.sidebar li,
+.sidebar-part-two li {
+  height: 50px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.sidebar .text,
+.sidebar-part-two .text {
+  font-size: 15px !important;
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 13px;
+  display: block;
+  color: #dfdfdf;
+  font-family: "Montserrat-Arabic";
+  margin-left: 5px;
+  transition: var(--tran-03);
+  padding-right: 15px !important;
+}
+.sidebar.close .text,
+.sidebar-part-two.colse .text {
+  display: none;
+}
+/* =========================== */
+
+.sidebar div,
+.sidebar-part-two div {
+  position: relative;
+}
+
+.sidebar .toggle {
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  color: var(--sidebar-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: var(--tran-05);
+}
+
+.sidebar.close .toggle {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar li:not(.contains-dropdown),
+.sidebar-part-two li:not(.contains-dropdown) {
+  transition: var(--tran-03);
+  cursor: pointer;
+  padding-inline: 20px;
+}
+
+.sidebar li,
+.sidebar-part-two li {
+  --beforeRotate: 90deg;
+  --marginTop: 0px;
+  justify-content: space-between;
+  transition: 0.2s all ease;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.sidebar li.contains-dropdown::before,
+.sidebar-part-two li.contains-dropdown::before {
+  content: "\203A";
+  transform: rotate(var(--beforeRotate));
+  color: white;
+  margin-top: var(--marginTop);
+  transition: 0.2s all ease;
+  font-size: 30px;
+  pointer-events: none;
+  margin-left: 14px;
+  display: var(--beforeDisplay);
+}
+
+.sidebar li:not(.contains-dropdown)::before,
+.sidebar-part-two li:not(.contains-dropdown)::before {
+  color: transparent;
+}
+
+.sidebar li.contains-dropdown:hover::before,
+.sidebar-part-two li.contains-dropdown:hover::before {
+  content: "\203A";
+  color: #000;
+}
+
+.sidebar li.contains-dropdown a,
+.sidebar-part-two li.contains-dropdown a {
+  padding-inline: 20px;
+  list-style: none;
+  display: flex;
+  font-size: 13px;
+  right: 0px;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+  background-color: transparent;
+  text-decoration: none;
+  flex-direction: row;
+  font-family: "TS Safaa";
+  font-weight: normal;
+  font-style: normal;
+  pointer-events: none;
+}
+
+.sidebar li a,
+.sidebar-part-two li a {
+  list-style: none;
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+  height: 100%;
+  background-color: transparent;
+  text-decoration: none;
+  font-family: "TS Safaa";
+  font-weight: normal;
+  font-style: normal;
+}
+.link-closed {
+  justify-content: center !important;
+  flex-direction: row-reverse !important;
+  margin-inline: auto !important;
+  padding: 0 !important;
+}
+
+.link-closed span {
+  display: none !important;
+}
+
+.sidebar li:hover,
+.sidebar-part-two li:hover {
+  border-radius: 6px;
+  background-color: var(--primary-color);
+}
+
+.sidebar-part-two li:hover svg,
+.sidebar li:hover svg * {
+  transition: 0.2s all ease;
+}
+.sidebar li:hover svg *,
+.sidebar li:hover i,
+.sidebar li:hover .text,
+.sidebar-part-two li:not(.sidebar-part-two li:last-child):hover svg *,
+.sidebar-part-two li:hover .text {
+  color: var(--sidebar-color) !important;
+  fill: var(--sidebar-color) !important;
+}
+
+.sidebar .menu-bar,
+.sidebar-part-two .menu-bar {
+  height: calc(100% - 55px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+}
+.sidebar .menu-bar {
+  overflow: hidden;
+  margin-top: 40px;
+}
+.menu-bar::-webkit-scrollbar {
+  display: none;
+}
+.dropdown {
+  background-color: #2a3047;
+  width: 100%;
+  color: white;
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: end;
+  height: var(--height);
+  overflow: hidden;
+  transition: 0.3s all ease;
+}
+
+.dropdown a {
+  width: 180px;
+  text-decoration: none;
+  font-size: 14px;
+  padding-right: 21px;
+  color: white;
+  position: relative;
+}
+
+.dropdown a::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  width: 7px;
+  height: 7px;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 50%;
+  background-color: white;
+}
+
+.hidden {
+  padding: 0px 10px;
+  height: 0px;
+}

@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+@font-face {
+  font-family: "Montserrat-Arabic";
+  src: url("./assets/fonts/Montserrat-Arabic-Regular.woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-section {
+  display: flex;
+  min-height: 100vh;
+}
+.image {
+  background: url("../assets/imgs/Login-side-img.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+  flex: 1;
+  width: 50vw;
+  height: 100vh;
+}
+
+.sign-in-container {
+  font-family: "Montserrat-Arabic";
+  background-image: radial-gradient(circle, #e0e2ef, #5c7df0);
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sign-in {
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  width: 90%;
+  max-width: 550px;
+  min-width: 300px;
+  max-height: 550px;
+  height: 80%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1;
+}
+
+.sign-in-container img {
+  width: 180px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="email"],
+input[type="password"] {
+  border-radius: 10px;
+  background-color: #e0e2ef;
+  padding: 10px 30px;
+  margin-top: 10px;
+  direction: rtl;
+  height: 50px;
+  width: 70%;
+  border: 1px solid;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  font-weight: 300;
+}
+input[type="submit"] {
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  width: 70%;
+  height: 37px;
+  background-color: #0f43f9;
+  color: white;
+  font-weight: 300;
+}
+
+.sign-in-container a {
+  color: #4c70f0;
+  text-align: end;
+  width: 70%;
+  font-weight: 300;
+  text-align: end;
+}
+
+.sign-in-container a:hover {
+  text-decoration: underline;
+}
+
+.sign-in-container p {
+  width: 70%;
+  text-align: center;
+}
+.sign-in-container p a {
+  color: black;
+  font-weight: bold;
+}
+::selection {
+  color: #fff;
+  background-color: #000;
+}
+
+@media (max-width: 1046px) {
+  .sign-in-container img {
+    width: 140px;
+  }
+  input[type="email"],
+  input[type="password"] {
+    padding: 5px 30px;
+    height: 40px;
+  }
+  .sign-in-container a {
+    font-size: 12px;
+  }
+  .sign-in-container p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 746px) {
+  .login-section {
+    flex-direction: column;
+  }
+  .sign-in-container {
+    background-image: none;
+    width: 100%;
+    flex: 1;
+  }
+  .image {
+    flex: none;
+    height: 40vh;
+    background-image: url("../assets/imgs/login-side-img-phone.svg");
+    background-size: cover;
+    width: 100%;
+  }
+  .sign-in {
+    padding-block: 50px;
+    max-width: none;
+    width: 100%;
+  }
+  .sign-in-container img {
+    width: 100px;
+  }
+}
+
+@media (max-width: 446px) {
+  input[type="email"],
+  input[type="password"] {
+    padding: 5px 30px;
+    height: 40px;
+  }
+  .sign-in-container a {
+    font-size: 12px;
+  }
+  .sign-in-container p {
+    font-size: 12px;
+  }
+}

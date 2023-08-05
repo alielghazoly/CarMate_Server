@@ -1,0 +1,18 @@
+.sellings-points-nav {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: space-around;
+}
+
+.sellings-points-nav button {
+  background: transparent;
+  font-size: 25px;
+}
+.sellings-points-nav button * {
+  color: var(--sidebar-color);
+}
+
+.sellings-points-nav a {
+  color: var(--sidebar-color);
+}

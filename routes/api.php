@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 // ACCOUNT ROUTES
 
-Route::post('users/login', [AuthController::class, 'login']);
+Route::post('users/login', [AuthController::class, 'login'])->name('login');
 Route::post('users/updateFcmToken', [AuthController::class, 'updateFcmToken'])->middleware('auth:api');
 Route::post('users/updateUserPhone', [AuthController::class, 'updateUserPhone'])->middleware('auth:api');
 

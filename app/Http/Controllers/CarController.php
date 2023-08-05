@@ -103,22 +103,33 @@ class CarController extends Controller
         try {
             $carID = $request->car_id;
             $carUserSync = $request->car_users;
-            $userAppIDs = [];
-            return $carUserSync;
+            $arrUserType = [];
+            $arrUserAppIDs = [];
             foreach($carUserSync as $objCarUser){
-                $userAppIDs[$objCarUser->user_app_id] = $objCarUser->user_type;
+                $arrUserType[$objCarUser['user_app_id']] = $objCarUser['user_type'];
             }
             $carUserDB = CarUser::where('car_id', $carID)->get();
             foreach($carUserDB as $objCarUser){
-                if ($objCarUser->user_type != self::USER_TYPE_OWNER && array_key_exists($objCarUser->user_app_id, $userAppIDs)) {
-                    $objCarUser->user_type = $userAppIDs[$objCarUser->user_app_id];
-                    $objCarUser->save();
-                } else {
-
-                }
+                if ($objCarUser->user_type == self::USER_TYPE_OWNER) {
+                    $arrUserAppIDs[] = $objCarUser->user_app_id;
+                    continue;
+                } elseif(array_key_exists($objCarUser->user_app_id, $arrUserType)) {
+                    $objcarUserDB = CarUser::where('user_app_id', $objCarUser->user_app_id)->first();
+                    $objcarUserDB->user_type = $arrUserType[$objCarUser->user_app_id];
+                    $arrUserAppIDs[] = $objCarUser->user_app_id;
+                    $objcarUserDB->save();
+                } elseif(!array_key_exists($objCarUser->user_app_id, $arrUserType)) {
+                    $objcarUserDB = CarUser::where('user_app_id', $objCarUser->user_app_id)->first();
+                    $arrUserAppIDs[] = $objCarUser->user_app_id;
+                    $objcarUserDB->delete();
+                } 
             }
-         return ;
+            // if (count()) {
+            //     # code...
+            // }
+            return $this->success("CarUsers sync successfully", []);
         } catch(\Exception $e) {
+            return $e->getMessage();
             return $this->error($e->getMessage(), $e->getCode());
         }      
     }

@@ -1,0 +1,100 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  padding-inline: 20px;
+  margin-inline: auto;
+  max-width: 1200px;
+  z-index: 80;
+}
+
+header::before {
+  content: "";
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  height: 103px;
+  z-index: -20;
+  left: 0px;
+}
+header div {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-search-logo input {
+  border-radius: 25px;
+  width: 200px;
+  height: 26px;
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+.nav-search-logo input::placeholder {
+  text-align: end;
+}
+
+.nav-info {
+  position: relative;
+}
+header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.display-picture {
+  margin-left: auto;
+}
+.display-picture img {
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.display-picture img:hover {
+  border: 2px solid #e78341;
+}
+
+.card {
+  transition: 0.5s ease;
+}
+
+.card ul {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: var(--sidebar-color);
+  position: absolute;
+  top: 102px;
+  right: 26px;
+  width: 300px;
+  direction: ltr;
+  color: white;
+  border-radius: 10px;
+  padding: 30px 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+.card button {
+  background-color: var(--blue-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.logout-btn {
+  background-color: #f13c47 !important;
+}
+.hidden {
+  display: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.card ul img {
+  width: 80px;
+}

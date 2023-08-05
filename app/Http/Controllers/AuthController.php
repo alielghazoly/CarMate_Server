@@ -17,6 +17,15 @@ class AuthController extends Controller
 
     use ResponseAPI;
 
+    public function view()
+    {
+        try {
+            return view('auth.login');
+        } catch(\Exception $e) {
+            return $this->error($e->getMessage(), $e->getCode());
+        }
+    }
+
     public function login(UserLoginRequest $request)
     {
         try {

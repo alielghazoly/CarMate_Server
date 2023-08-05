@@ -1,0 +1,142 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 21px;
+  width: 23px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #e0e2ef;
+}
+
+input:checked + .slider::before {
+  background-color: #38bb94;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #e0e2ef;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+  background-color: #d2d2d2;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.setting-section {
+  background-color: white;
+  min-height: 100vh;
+  flex: 1;
+  max-width: 1000px;
+  padding: 30px 40px;
+  justify-self: center;
+  border-radius: 20px;
+  margin-inline: auto;
+}
+
+.setting-div {
+  margin-top: 20px;
+}
+
+.option-select,
+.option-input,
+.option-toggle,
+.option-radio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-bottom: 1px solid #9b9b9bcb;
+  gap: 40px;
+  line-height: 24px;
+  margin-bottom: 5px;
+}
+
+.option-select div,
+.option-input div,
+.option-toggle div,
+.option-radio div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-width: 250px;
+}
+
+.option-radio div input[type="radio"] {
+  width: 22px;
+  height: 17px;
+}
+
+.option-input input {
+  min-width: 200px;
+  padding-inline: 10px;
+  height: 32px;
+  background-color: #eaeaea;
+  border-radius: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.345);
+  border-radius: 5.5px;
+  position: relative;
+}
+
+.option-select select {
+  min-width: 250px;
+  background-color: #eaeaea;
+  border-radius: 5.5px;
+  border: 1px solid rgba(0, 0, 0, 0.345);
+  height: 32px;
+}
+
+@media (max-width: 1243px) {
+  .setting-section {
+    background-color: white;
+    min-height: 100vh;
+    flex: 1;
+    max-width: 800px;
+    padding: 30px 40px;
+    justify-self: center;
+    border-radius: 20px;
+    margin-inline: auto;
+  }
+}

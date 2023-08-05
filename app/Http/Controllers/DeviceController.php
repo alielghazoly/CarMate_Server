@@ -7,13 +7,21 @@ use App\Http\Requests\Device\DeviceCreateRequest;
 use App\Models\Device;
 use App\Traits\ResponseAPI;
 
-use function PHPUnit\Framework\isNull;
 
 class DeviceController extends Controller
 {
  
     use ResponseAPI;
     
+    public function createDevicesPage()
+    {
+        try {
+            return view('devices.create');
+        } catch(\Exception $e) {
+            return $this->error($e->getMessage(), $e->getCode());
+        }
+    }
+
     public function store(DeviceCreateRequest $request)
     {        
         try {
